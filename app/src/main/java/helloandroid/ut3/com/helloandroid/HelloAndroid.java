@@ -1,5 +1,6 @@
 package helloandroid.ut3.com.helloandroid;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.widget.TextView;
@@ -11,23 +12,11 @@ import androidx.appcompat.app.AppCompatActivity;
 public class HelloAndroid extends AppCompatActivity {
     private Handler mHandler;
     private TextView tv;
-    private int cnt = 0;
 
     // un Runnable qui sera appelé par le timer
     private Runnable mUpdateTimeTask = new Runnable() {
         public void run() {
-            cnt++;
-
-            if (cnt < 5) {
-                updateContent("" + cnt);
-            }
-            else if (cnt == 5) {
-                updateContent("Hello, Android");
-            }
-            else {
-                System.exit(RESULT_OK);
-            }
-            mHandler.postDelayed(mUpdateTimeTask, 1000);
+            updateContent("MODEL: " + Build.MODEL + "\nSDK: " + Build.VERSION.SDK_INT);
         }
     };
 
