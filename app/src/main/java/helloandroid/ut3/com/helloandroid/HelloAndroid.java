@@ -14,15 +14,12 @@ public class HelloAndroid extends AppCompatActivity {
     // un Runnable qui sera appelé par le timer
     private Runnable mUpdateTimeTask = new Runnable() {
         public void run() {
-            System.out.println("mUpdateTimeTask.run called");
             System.exit(RESULT_OK);
         }
     };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
-        System.out.println("onCreate handle");
         super.onCreate(savedInstanceState);
 
         mHandler = new Handler();
