@@ -1,8 +1,10 @@
 package helloandroid.ut3.com.helloandroid;
 
+import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Vibrator;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -25,8 +27,11 @@ public class HelloAndroid extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         tv = new TextView(this);
-        mHandler = new Handler();
-        mHandler.postDelayed(mUpdateTimeTask, 1000);
+        tv.setText("Hello, Android");
+        setContentView(tv);
+
+        Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+        vibrator.vibrate(1000);
     }
 
     protected void updateContent(String text) {
